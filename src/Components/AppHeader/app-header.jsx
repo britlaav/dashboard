@@ -1,5 +1,15 @@
 import { BellOutlined, MailOutlined } from "@ant-design/icons";
-import { Image, Typography, Space, Layout, Badge, Drawer, List } from "antd";
+import {
+    Image,
+    Typography,
+    Space,
+    Layout,
+    Badge,
+    Drawer,
+    List,
+    Row,
+    Col,
+} from "antd";
 import Icon from "../../assets/Icon.png";
 import { getOrders, getComments } from "../../API/api";
 import { useEffect, useState } from "react";
@@ -24,49 +34,47 @@ function AppHeader() {
         <Layout>
             <Header
                 style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "space-between",
+                    padding: "0 16px",
                 }}
             >
-                <Space>
-                    <Image
-                        src={Icon}
-                        width={40}
-                        style={{ borderRadius: "50%" }}
-                        preview={false}
-                    />
-                    <Typography.Title level={2} style={{ color: "white" }}>
-                        TrackHub
-                    </Typography.Title>
-                </Space>
-
-                <Space
-                    style={{
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        fontSize: 30,
-                    }}
-                >
-                    <Badge count={comments.length} dot>
-                        <MailOutlined
-                            style={{ fontSize: 24, color: "white" }}
-                            onClick={() => {
-                                setCommentsOpen(true);
-                            }}
-                        ></MailOutlined>
-                    </Badge>
-                    <Badge count={orders.length}>
-                        <BellOutlined
-                            style={{ fontSize: 24, color: "white" }}
-                            onClick={() => {
-                                setNotificationsOpen(true);
-                            }}
-                        ></BellOutlined>
-                    </Badge>
-                </Space>
-
+                <Row justify={"space-between"} align={"middle"}>
+                    <Col xs={16} md={6}>
+                        <Space>
+                            <Image
+                                src={Icon}
+                                width={40}
+                                style={{ borderRadius: "50%" }}
+                                preview={false}
+                            />
+                            <Typography.Title
+                                level={2}
+                                style={{ color: "white" }}
+                            >
+                                TrackHub
+                            </Typography.Title>
+                        </Space>
+                    </Col>
+                    <Col xs={8} md={6} style={{ textAlign: "right" }}>
+                        <Space size={"large"}>
+                            <Badge count={comments.length} dot>
+                                <MailOutlined
+                                    style={{ fontSize: 22, color: "white" }}
+                                    onClick={() => {
+                                        setCommentsOpen(true);
+                                    }}
+                                ></MailOutlined>
+                            </Badge>
+                            <Badge count={orders.length}>
+                                <BellOutlined
+                                    style={{ fontSize: 22, color: "white" }}
+                                    onClick={() => {
+                                        setNotificationsOpen(true);
+                                    }}
+                                />
+                            </Badge>
+                        </Space>
+                    </Col>
+                </Row>
                 <Drawer
                     title="Comments"
                     open={commentsOpen}
@@ -80,7 +88,7 @@ function AppHeader() {
                         renderItem={(item) => {
                             return <List.Item>{item.body}</List.Item>;
                         }}
-                    ></List>
+                    />
                 </Drawer>
 
                 <Drawer
@@ -96,15 +104,14 @@ function AppHeader() {
                         renderItem={(item) => {
                             return (
                                 <List.Item>
-                                    {" "}
                                     <Typography.Text strong>
                                         {item.title}
-                                    </Typography.Text>{" "}
+                                    </Typography.Text>
                                     has been ordered.
                                 </List.Item>
                             );
                         }}
-                    ></List>
+                    />
                 </Drawer>
             </Header>
         </Layout>

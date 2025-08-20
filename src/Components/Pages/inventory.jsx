@@ -1,4 +1,4 @@
-import { Avatar, Rate, Space, Table, Typography } from "antd";
+import { Avatar, Card, Rate, Row, Space, Table, Typography } from "antd";
 import { useState, useEffect } from "react";
 import { getInventory } from "../../API/api";
 
@@ -14,13 +14,20 @@ const Inventory = () => {
         });
     }, []);
     return (
-        <Space size={20} direction="vertical">
-            <Typography.Title level={4}>Inventory</Typography.Title>
+        <Space direction="vertical" style={{ width: "97%" }}>
+            <Row style={{ paddingLeft: 25, paddingTop: 15 }}>
+                <Typography.Title level={2}>Inventory</Typography.Title>
+            </Row>
+
             <Table
+                scroll={{ x: "max-content" }}
+                style={{ paddingLeft: 25, paddingTop: 30 }}
+                size="small"
                 rowKey={"id"}
                 loading={loading}
                 columns={[
                     {
+                        ellipsis: "true",
                         title: "Thumbnail",
                         id: "1",
                         dataIndex: "thumbnail",
@@ -29,6 +36,7 @@ const Inventory = () => {
                         },
                     },
                     {
+                        ellipsis: "true",
                         title: "Title",
                         id: "2",
                         dataIndex: "title",
@@ -60,7 +68,7 @@ const Inventory = () => {
                 ]}
                 dataSource={dataSource}
                 pagination={{ pageSize: 5 }}
-            ></Table>
+            />
         </Space>
     );
 };

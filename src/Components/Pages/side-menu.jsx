@@ -25,11 +25,7 @@ function SideMenu() {
     } = theme.useToken();
 
     return (
-        <Sider
-            breakpoint="lg"
-            width={200}
-            style={{ background: colorBgContainer, height: 450 }}
-        >
+        <Sider breakpoint="lg" style={{ background: colorBgContainer }}>
             <Menu
                 onClick={(item) => {
                     navigate(item.key);

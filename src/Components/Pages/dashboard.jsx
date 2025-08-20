@@ -55,17 +55,13 @@ const Dashboard = () => {
     }, []);
 
     return (
-        <Space direction="vertical" size={"20px"}>
-            <Typography.Title level={4}>Dashboard</Typography.Title>
-            <Space
-                direction="horizontal"
-                style={{
-                    display: "flex",
-                    alignItems: "center",
-                }}
-            >
-                {" "}
-                <Row gutter={[16, 16]}>
+        <>
+            <Space direction="vertical" style={{ width: "92%" }}>
+                <Row style={{ paddingLeft: 25, paddingTop: 16 }}>
+                    <Typography.Title level={2}>Dashboard</Typography.Title>
+                </Row>
+
+                <Row style={{ paddingLeft: 25 }} gutter={[8, 10]}>
                     <Col xs={24} sm={12} md={8} lg={6}>
                         <DashboardCard
                             icon={
@@ -135,20 +131,25 @@ const Dashboard = () => {
                         />
                     </Col>
                 </Row>
+                <Row gutter={[35, 16]} style={{ padding: "20px 0 0 25px" }}>
+                    <Col span={12} xs={24} sm={12}>
+                        <RecentOrders />
+                    </Col>
+                    <Col span={12} xs={24} sm={12}>
+                        <DashboardChart />
+                    </Col>
+                </Row>
             </Space>
-            <Space>
-                <RecentOrders />
-            </Space>
-        </Space>
+        </>
     );
 };
 
 function DashboardCard({ title, value, icon }) {
     return (
-        <Card>
-            <Space direction="horizontal">
+        <Card hoverable size="small">
+            <Space>
                 {icon}
-                <Statistic title={title} value={value} />
+                <Statistic precision={0} title={title} value={value} />
             </Space>
         </Card>
     );
@@ -167,38 +168,35 @@ function RecentOrders() {
     }, []);
 
     return (
-        <Space direction="vertical">
-            <Typography.Text>Recent Orders</Typography.Text>
-            <Space>
-                <Table
-                    rowKey="id"
-                    columns={[
-                        {
-                            id: "1",
-                            title: "Title",
-                            dataIndex: "title",
-                            responsive: ["xs", "sm", "md", "lg"],
-                        },
-                        {
-                            title: "Quantity",
-                            dataIndex: "quantity",
-                            id: "2",
-                            responsive: ["xs", "sm", "md", "lg"],
-                        },
-                        {
-                            title: "Price",
-                            dataIndex: "discountedTotal",
-                            id: "2",
-                            responsive: ["xs", "sm", "md", "lg"],
-                        },
-                    ]}
-                    loading={loading}
-                    dataSource={dataSource}
-                    pagination={false}
-                ></Table>
-                <DashboardChart />
-            </Space>
-        </Space>
+        <Card title="Recent Orders">
+            <Table
+                size="small"
+                rowKey="id"
+                columns={[
+                    {
+                        id: "1",
+                        title: "Title",
+                        dataIndex: "title",
+                        ellipsis: "true",
+                    },
+                    {
+                        title: "Quantity",
+                        dataIndex: "quantity",
+                        id: "2",
+                        ellipsis: "true",
+                    },
+                    {
+                        title: "Price",
+                        dataIndex: "discountedTotal",
+                        id: "2",
+                        ellipsis: "true",
+                    },
+                ]}
+                loading={loading}
+                dataSource={dataSource}
+                pagination={false}
+            />
+        </Card>
     );
 }
 
@@ -238,18 +236,12 @@ function DashboardChart() {
             legend: {
                 position: "bottom",
             },
-            title: {
-                display: true,
-                text: "Order Revenue",
-            },
         },
     };
 
     return (
-        <Card style={{ width: "100%", height: 250 }}>
-            <div style={{ height: "100%" }}>
-                <Bar options={options} data={revenueData} />
-            </div>
+        <Card title={"Order Revenue"}>
+            <Bar options={options} data={revenueData} />
         </Card>
     );
 }
