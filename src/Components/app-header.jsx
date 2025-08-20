@@ -10,8 +10,8 @@ import {
     Row,
     Col,
 } from "antd";
-import Icon from "../../assets/Icon.png";
-import { getOrders, getComments } from "../../API/api";
+import Icon from "../assets/Icon.png";
+import { getOrders, getComments } from "../API/api";
 import { useEffect, useState } from "react";
 const { Header } = Layout;
 

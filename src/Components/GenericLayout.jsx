@@ -1,8 +1,7 @@
 import { Layout } from "antd";
-import AppHeader from "./AppHeader/app-header";
-import SideMenu from "./Pages/side-menu";
-import AppFooter from "./AppFooter/app-footer";
-import { Content } from "antd/es/layout/layout";
+import AppHeader from "./app-header";
+import SideMenu from "./side-menu";
+import AppFooter from "./app-footer";
 
 const { Footer } = Layout;
 function GenericLayout({ children }) {

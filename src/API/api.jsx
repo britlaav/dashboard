@@ -1,19 +1,16 @@
-export const getOrders = () => {
-    return fetch("https://dummyjson.com/carts/1").then((res) => res.json());
-};
+import axios from "axios";
 
-export const getRevenue = () => {
-    return fetch("https://dummyjson.com/carts").then((res) => res.json());
-};
+export const getOrders = () =>
+    axios.get("https://dummyjson.com/carts/1").then((res) => res.data);
 
-export const getInventory = () => {
-    return fetch("https://dummyjson.com/products").then((res) => res.json());
-};
+export const getRevenue = () =>
+    axios.get("https://dummyjson.com/carts").then((res) => res.data);
 
-export const getCustomers = () => {
-    return fetch("https://dummyjson.com/users").then((res) => res.json());
-};
+export const getInventory = () =>
+    axios.get("https://dummyjson.com/products").then((res) => res.data);
 
-export const getComments = () => {
-    return fetch("https://dummyjson.com/comments").then((res) => res.json());
-};
+export const getCustomers = () =>
+    axios.get("https://dummyjson.com/users").then((res) => res.data);
+
+export const getComments = () =>
+    axios.get("https://dummyjson.com/comments").then((res) => res.data);
