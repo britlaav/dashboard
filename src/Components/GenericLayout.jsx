@@ -11,7 +11,7 @@ function GenericLayout({ children }) {
                 <AppHeader />
                 <Layout>
                     <SideMenu />
-                    <Layout>
+                    <Layout style={{ height: "100%" }}>
                         {children}
                         <Footer>
                             <AppFooter />

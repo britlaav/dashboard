@@ -57,7 +57,7 @@ const Dashboard = () => {
     return (
         <>
             <Space direction="vertical" style={{ width: "92%" }}>
-                <Row style={{ paddingLeft: 25, paddingTop: 16 }}>
+                <Row style={{ paddingLeft: 25, paddingTop: 12 }}>
                     <Typography.Title level={2}>Dashboard</Typography.Title>
                 </Row>
 
@@ -131,7 +131,7 @@ const Dashboard = () => {
                         />
                     </Col>
                 </Row>
-                <Row gutter={[35, 16]} style={{ padding: "20px 0 0 25px" }}>
+                <Row gutter={[35, 16]} style={{ paddingLeft: " 25px" }}>
                     <Col span={12} xs={24} sm={12}>
                         <RecentOrders />
                     </Col>

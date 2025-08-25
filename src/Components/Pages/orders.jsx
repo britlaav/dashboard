@@ -2,6 +2,7 @@ import { Avatar, Rate, Row, Space, Table, Typography } from "antd";
 import { useState, useEffect } from "react";
 import { getOrders } from "../../API/api";
 import Link from "antd/es/typography/Link";
+import AppFooter from "../app-footer";
 
 const Orders = () => {
     const [loading, setLoading] = useState(false);
@@ -15,11 +16,12 @@ const Orders = () => {
         });
     }, []);
     return (
-        <Space direction="vertical" style={{ width: "97%", height: "75vh" }}>
+        <Space direction="vertical" style={{ width: "97%" }}>
             <Row style={{ paddingLeft: 25, paddingTop: 15 }}>
                 <Typography.Title level={2}>Orders</Typography.Title>
             </Row>
             <Table
+                size="large"
                 rowKey={"id"}
                 style={{ paddingLeft: 25, paddingTop: 30 }}
                 pagination={false}
@@ -48,7 +50,7 @@ const Orders = () => {
                     },
                 ]}
                 dataSource={dataSource}
-            ></Table>
+            />
         </Space>
     );
 };

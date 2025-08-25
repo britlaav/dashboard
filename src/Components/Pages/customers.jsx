@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getCustomers } from "../../API/api";
-import { Card, Row, Space, Table, Typography } from "antd";
+import { Row, Space, Table, Typography } from "antd";
 
 const Customers = () => {
     const [loading, setLoading] = useState(false);
@@ -15,7 +15,7 @@ const Customers = () => {
     }, []);
 
     return (
-        <Space direction="vertical" style={{ width: "97%", height: "76vh" }}>
+        <Space direction="vertical" style={{ width: "97%" }}>
             <Row style={{ paddingLeft: 25, paddingTop: 15 }}>
                 <Typography.Title level={2}>Customers</Typography.Title>
             </Row>

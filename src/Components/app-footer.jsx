@@ -2,7 +2,7 @@ import { Col, Row, Typography } from "antd";
 
 function AppFooter() {
     return (
-        <Row justify={"center"} style={{ paddingTop: 10 }}>
+        <Row justify={"center"}>
             <Col>
                 <Typography.Link
                     href="tel:+91-7645625317"

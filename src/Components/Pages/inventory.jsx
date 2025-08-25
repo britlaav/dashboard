@@ -67,7 +67,7 @@ const Inventory = () => {
                     },
                 ]}
                 dataSource={dataSource}
-                pagination={{ pageSize: 5 }}
+                pagination={{ pageSize: 4 }}
             />
         </Space>
     );
