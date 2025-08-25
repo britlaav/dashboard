@@ -6,20 +6,23 @@ import AppFooter from "./app-footer";
 const { Footer } = Layout;
 function GenericLayout({ children }) {
     return (
-        <>
+        <Layout>
+            <AppHeader />
             <Layout>
-                <AppHeader />
-                <Layout>
-                    <SideMenu />
-                    <Layout style={{ height: "100%" }}>
-                        {children}
-                        <Footer>
-                            <AppFooter />
-                        </Footer>
-                    </Layout>
+                <SideMenu />
+                <Layout
+                    style={{
+                        display: "flex",
+                        flexDirection: "column",
+                    }}
+                >
+                    <div style={{ minHeight: "76vh" }}>{children}</div>
+                    <Footer>
+                        <AppFooter />
+                    </Footer>
                 </Layout>
             </Layout>
-        </>
+        </Layout>
     );
 }
 export default GenericLayout;

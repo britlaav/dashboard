@@ -55,92 +55,90 @@ const Dashboard = () => {
     }, []);
 
     return (
-        <>
-            <Space direction="vertical" style={{ width: "92%" }}>
-                <Row style={{ paddingLeft: 25, paddingTop: 12 }}>
-                    <Typography.Title level={2}>Dashboard</Typography.Title>
-                </Row>
+        <Space direction="vertical" style={{ width: "92%" }}>
+            <Row style={{ paddingLeft: 25, paddingTop: 12 }}>
+                <Typography.Title level={2}>Dashboard</Typography.Title>
+            </Row>
 
-                <Row style={{ paddingLeft: 25 }} gutter={[8, 10]}>
-                    <Col xs={24} sm={12} md={8} lg={6}>
-                        <DashboardCard
-                            icon={
-                                <ShoppingCartOutlined
-                                    style={{
-                                        color: "green",
-                                        backgroundColor: "rgba(0,255,0,0.25)",
-                                        borderRadius: "20px",
-                                        fontSize: "24px",
-                                        padding: "8px",
-                                    }}
-                                />
-                            }
-                            title={"Orders"}
-                            value={orders}
-                        />
-                    </Col>
-                    <Col xs={24} sm={12} md={8} lg={6}>
-                        <DashboardCard
-                            icon={
-                                <ShoppingOutlined
-                                    style={{
-                                        color: "blue",
-                                        backgroundColor: "rgba(0,0,255,0.25)",
-                                        borderRadius: "20px",
-                                        fontSize: "24px",
-                                        padding: "8px",
-                                    }}
-                                />
-                            }
-                            title={"Inventory"}
-                            value={inventory}
-                        />
-                    </Col>
-                    <Col xs={24} sm={12} md={8} lg={6}>
-                        <DashboardCard
-                            icon={
-                                <UserOutlined
-                                    style={{
-                                        color: "purple",
-                                        backgroundColor: "rgba(0,255,255,0.25)",
-                                        borderRadius: "20px",
-                                        fontSize: "24px",
-                                        padding: "8px",
-                                    }}
-                                />
-                            }
-                            title={"Customers"}
-                            value={customers}
-                        />
-                    </Col>
-                    <Col xs={24} sm={12} md={8} lg={6}>
-                        <DashboardCard
-                            icon={
-                                <DollarCircleOutlined
-                                    style={{
-                                        color: "red",
-                                        backgroundColor: "rgba(255,0,0,0.25)",
-                                        borderRadius: "20px",
-                                        fontSize: "24px",
-                                        padding: "8px",
-                                    }}
-                                />
-                            }
-                            title={"Revenue"}
-                            value={revenue}
-                        />
-                    </Col>
-                </Row>
-                <Row gutter={[35, 16]} style={{ paddingLeft: " 25px" }}>
-                    <Col span={12} xs={24} sm={12}>
-                        <RecentOrders />
-                    </Col>
-                    <Col span={12} xs={24} sm={12}>
-                        <DashboardChart />
-                    </Col>
-                </Row>
-            </Space>
-        </>
+            <Row style={{ paddingLeft: 25 }} gutter={[8, 10]}>
+                <Col xs={24} sm={12} md={8} lg={6}>
+                    <DashboardCard
+                        icon={
+                            <ShoppingCartOutlined
+                                style={{
+                                    color: "green",
+                                    backgroundColor: "rgba(0,255,0,0.25)",
+                                    borderRadius: "20px",
+                                    fontSize: "24px",
+                                    padding: "8px",
+                                }}
+                            />
+                        }
+                        title={"Orders"}
+                        value={orders}
+                    />
+                </Col>
+                <Col xs={24} sm={12} md={8} lg={6}>
+                    <DashboardCard
+                        icon={
+                            <ShoppingOutlined
+                                style={{
+                                    color: "blue",
+                                    backgroundColor: "rgba(0,0,255,0.25)",
+                                    borderRadius: "20px",
+                                    fontSize: "24px",
+                                    padding: "8px",
+                                }}
+                            />
+                        }
+                        title={"Inventory"}
+                        value={inventory}
+                    />
+                </Col>
+                <Col xs={24} sm={12} md={8} lg={6}>
+                    <DashboardCard
+                        icon={
+                            <UserOutlined
+                                style={{
+                                    color: "purple",
+                                    backgroundColor: "rgba(0,255,255,0.25)",
+                                    borderRadius: "20px",
+                                    fontSize: "24px",
+                                    padding: "8px",
+                                }}
+                            />
+                        }
+                        title={"Customers"}
+                        value={customers}
+                    />
+                </Col>
+                <Col xs={24} sm={12} md={8} lg={6}>
+                    <DashboardCard
+                        icon={
+                            <DollarCircleOutlined
+                                style={{
+                                    color: "red",
+                                    backgroundColor: "rgba(255,0,0,0.25)",
+                                    borderRadius: "20px",
+                                    fontSize: "24px",
+                                    padding: "8px",
+                                }}
+                            />
+                        }
+                        title={"Revenue"}
+                        value={revenue}
+                    />
+                </Col>
+            </Row>
+            <Row gutter={[35, 16]} style={{ paddingLeft: " 25px" }}>
+                <Col span={12} xs={24} sm={12}>
+                    <RecentOrders />
+                </Col>
+                <Col span={12} xs={24} sm={12}>
+                    <DashboardChart />
+                </Col>
+            </Row>
+        </Space>
     );
 };
 
